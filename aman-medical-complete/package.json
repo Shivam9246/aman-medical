@@ -1,0 +1,15 @@
+{
+  "name": "aman-medical",
+  "version": "1.0.0",
+  "description": "AMAN MEDICAL — Full-stack pharmacy website (Node.js + Express + MongoDB)",
+  "private": true,
+  "scripts": {
+    "install:backend": "cd backend && npm install",
+    "seed": "cd backend && node utils/seed.js",
+    "dev": "cd backend && npm run dev",
+    "start": "cd backend && npm start"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

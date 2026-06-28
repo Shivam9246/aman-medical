@@ -1,0 +1,25 @@
+# render.yaml — Deploy AMAN MEDICAL backend to Render.com
+# Place this in the ROOT of your repository (not inside /backend)
+
+services:
+  - type: web
+    name: aman-medical-api
+    env: node
+    region: singapore   # closest to India; change to oregon if needed
+    plan: free           # free tier — spins down after 15 min inactivity
+    rootDir: backend     # tells Render where your backend code lives
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000       # Render uses port 10000 internally
+      # ── Set these in Render Dashboard → Environment tab ──
+      # MONGO_URI          — your MongoDB Atlas connection string
+      # JWT_SECRET         — long random secret (32+ chars)
+      # JWT_EXPIRES_IN     — e.g. 7d
+      # ADMIN_EMAIL        — admin@amanmedical.in
+      # ADMIN_PASSWORD     — your secure admin password
+      # FRONTEND_ORIGIN    — your Netlify/Vercel frontend URL
