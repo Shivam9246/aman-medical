@@ -319,6 +319,11 @@
      2. api.js     — backend API client (AuthAPI, ProductsAPI, OrdersAPI)
      3. app.js     — store logic (uses the API client)
 -->
+<script>
+  window.API_BASE_URL = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+    ? 'http://localhost:5000/api'
+    : 'https://aman-medical.onrender.com/api';
+</script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script src="logo.js"></script>
 <script src="api.js"></script>
